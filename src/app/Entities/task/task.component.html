@@ -1,1 +1,10 @@
 <p>task works!</p>
+@for (x of tasks; track x.id){
+  <div style="border-style: solid; text-align: center">
+    <p>{{x.nameTask}}</p>
+    <p>{{x.createAt}}</p>
+    <p>{{x.deadLine}}</p>
+    <p>{{x.finishAt == null ? 'Not finish' : 'finish at' + x.finishAt}}</p>
+    <p>{{x.user.name}}</p>
+  </div>
+}

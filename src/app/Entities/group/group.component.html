@@ -1,7 +1,9 @@
 <p>group works!</p>
 @for (group of groups; track group.id ){
-  <p>{{group.id}}</p>
-  <p>{{group.name}}</p>
-  <p>{{group.codeGroup}}</p>
+  <div style="border: darkgray; border-style: solid" (click)="OnClick(group.id)">
+    <p>{{group.id}}</p>
+    <p>{{group.name}}</p>
+    <p>{{group.codeGroup}}</p>
+  </div>
   <br>
 }

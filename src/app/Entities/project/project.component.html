@@ -1,1 +1,8 @@
 <p>project works!</p>
+<button (click)="GetInforGroup()">Detail Group</button>
+@for (project of projects; track project.id){
+  <div style="border-style: solid" (click)="OnClick(project.id)">
+    <p>{{project.name}}</p>
+    <p>{{project.dateCreate}}</p>
+  </div>
+}

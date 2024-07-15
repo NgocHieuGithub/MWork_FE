@@ -1,7 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {GroupModel} from "./group.model";
 import {GroupService} from "./group.service";
-import {TokenStorage} from "../../Config/Storage/TokenStorage";
+import {Router, Routes} from "@angular/router";
 
 @Component({
   selector: 'app-group',
@@ -13,8 +13,8 @@ import {TokenStorage} from "../../Config/Storage/TokenStorage";
 
 export class GroupComponent implements OnInit{
   protected group_service = inject(GroupService);
-  protected storage = inject(TokenStorage);
-  protected i = 1
+  protected router = inject(Router);
+
   groups: GroupModel[] | undefined;
 
   ngOnInit(){
@@ -34,5 +34,7 @@ export class GroupComponent implements OnInit{
     })
   }
 
-  protected readonly Array = Array;
+  OnClick(id_group:string){
+    this.router.navigate(['project',id_group])
+  }
 }

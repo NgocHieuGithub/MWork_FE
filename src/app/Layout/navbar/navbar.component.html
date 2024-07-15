@@ -1,2 +1,26 @@
-<p style="align-items: center;text-align: center">navbar works!</p>
-<hr>
+@if (check){
+  <header class="navbar">
+    <div class="container">
+      <h1>Navbar</h1>
+      <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+          <a (click)="JoinGroup()">Join Group</a>
+          <a (click)="CreateGroup()">Create Group</a>
+        </div>
+      </div>
+    </div>
+  </header>
+} @else {
+  <header class="navbar">
+    <div class="container">
+      <h1>Navbar</h1>
+    </div>
+  </header>
+}
+<!--<aside class="left-container">-->
+<!--  <div class="container">-->
+<!--    <h2>Left Container</h2>-->
+<!--    <p>Content goes here...</p>-->
+<!--  </div>-->
+<!--</aside>-->
