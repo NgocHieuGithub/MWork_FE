@@ -1,13 +1,15 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {ProjectService} from "./project.service";
 import {ProjectModel} from "./project.model";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {GroupService} from "../group/group.service";
 
 @Component({
   selector: 'app-project',
   standalone: true,
-  imports: [],
+  imports: [
+    RouterLink
+  ],
   templateUrl: './project.component.html',
   styleUrl: './project.component.css'
 })

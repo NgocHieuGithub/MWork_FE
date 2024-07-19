@@ -20,10 +20,13 @@ export class GroupService{
   JoinGroup(x: string):Observable<any>{
     return this.http.get(this.app_config.getEndpointFor('group/join'), {headers: this.headers, params:{code_group:x}})
   }
-  CreateGroup(x: GroupModel):Observable<GroupModel>{
-    return this.http.post<GroupModel>(this.app_config.getEndpointFor('group/create'),x,{headers:this.headers});
+  CreateGroup(x: any):Observable<any>{
+    return this.http.post(this.app_config.getEndpointFor('group/create'),x,{headers:this.headers});
   }
   GetInforGroup(x:string):Observable<any>{
     return this.http.get(this.app_config.getEndpointFor('group/read'),{headers:this.headers,params:{id_group:x}})
+  }
+  GetMemBers(x:string):Observable<any>{
+    return this.http.get(this.app_config.getEndpointFor('user/members'),{headers:this.headers, params:{id_group:x}})
   }
 }

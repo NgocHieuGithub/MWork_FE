@@ -1,0 +1,15 @@
+.container {
+  margin-left: 350px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.square {
+  text-align: center;
+  width: calc(25% - 20px); /* 33.33% để mỗi hàng có 3 div, 20px để làm khoảng cách giữa các div */
+  height: 250px; /* Chiều cao của mỗi ô vuông */
+  /*background-color: #3498db; !* Màu nền của mỗi ô vuông *!*/
+  margin: 20px; /* Khoảng cách giữa các ô vuông */
+  box-sizing: border-box; /* Để kích thước tính cả padding và border */
+}
+

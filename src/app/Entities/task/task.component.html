@@ -1,7 +1,8 @@
 <p>task works!</p>
 @for (x of tasks; track x.id){
-  <div style="border-style: solid; text-align: center">
-    <p>{{x.nameTask}}</p>
+  <div style="border-style: solid; text-align: center;
+{{sessionStorage.getItem('mwork_id') == x.user.id ?  'background-color: #ffff' : ' background-color: #f1f1'}}">
+  <p>{{x.nameTask}}</p>
     <p>{{x.createAt}}</p>
     <p>{{x.deadLine}}</p>
     <p>{{x.finishAt == null ? 'Not finish' : 'finish at' + x.finishAt}}</p>

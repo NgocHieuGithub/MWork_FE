@@ -25,4 +25,6 @@ export class TaskComponent implements OnInit{
       }
     })
   }
+
+    protected readonly sessionStorage = sessionStorage;
 }

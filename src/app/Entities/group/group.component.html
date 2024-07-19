@@ -1,9 +1,18 @@
 <p>group works!</p>
+<div class="container">
+  @if(groups?.length == 0){
+    <h1>Bạn chưa tham gia nhóm nào !</h1>
+  }
 @for (group of groups; track group.id ){
-  <div style="border: darkgray; border-style: solid" (click)="OnClick(group.id)">
-    <p>{{group.id}}</p>
-    <p>{{group.name}}</p>
-    <p>{{group.codeGroup}}</p>
+  <div class="square" style="border: darkgray; border-style: solid; border-radius: 8px" >
+    <div style="background-color:seagreen; padding: 8px" (click)="OnClick(group.id)">
+      <p style="margin: unset; color: #ffffff">{{group.id}}</p>
+    </div>
+    <div>
+      <p>{{group.name}}</p>
+      <p>{{group.codeGroup}}</p>
+    </div>
   </div>
   <br>
 }
+</div>

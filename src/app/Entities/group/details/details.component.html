@@ -1,0 +1,9 @@
+<p>details works!</p>
+<h1>Leader</h1>
+<p>{{data.inforGroup.leader.name}}</p>
+<h1>Member</h1>
+@for(x of data.inforListMember; track x.id){
+  @if (data.inforGroup.leader.id != x.id){
+    <p>{{x.name}}</p>
+  }
+}

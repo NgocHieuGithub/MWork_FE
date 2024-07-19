@@ -4,6 +4,9 @@ import {RegisterComponent} from "./Account/register/register.component";
 import {HomeComponent} from "./Layout/home/home.component";
 import {ProjectComponent} from "./Entities/project/project.component";
 import {TaskComponent} from "./Entities/task/task.component";
+import {DetailsComponent} from "./Entities/group/details/details.component";
+import {YouttaskComponent} from "./Entities/task/youttask/youttask.component";
+import {CreateComponent} from "./Entities/project/create/create.component";
 
 export const routes: Routes = [
   {
@@ -25,5 +28,17 @@ export const routes: Routes = [
   {
     path:'task/:id_project',
     component:TaskComponent
+  },
+  {
+    path:'group/r/:id_group',
+    component: DetailsComponent
+  },
+  {
+    path:'group/t/:id_group',
+    component:YouttaskComponent
+  },
+  {
+    path:'group/c/:id_group',
+    component:CreateComponent
   }
 ];

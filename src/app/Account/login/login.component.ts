@@ -1,18 +1,23 @@
-import {Component, inject} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, inject} from '@angular/core';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {LoginService} from "./login.service";
 import {Router, Routes} from "@angular/router";
 import {TokenStorage} from "../../Config/Storage/TokenStorage";
+import {NgClass} from "@angular/common";
+
 
 @Component({
   selector: 'app-main',
   standalone: true,
   imports: [
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgClass
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: [
+    './login.component.scss',
+  ]
 })
 export class LoginComponent {
   private loginService = inject(LoginService);
@@ -31,5 +36,9 @@ export class LoginComponent {
         alert("Wrong password")
       }
     })
+  }
+  showingPage: string = 'account-page';
+  toggleView(){
+    this.showingPage = this.showingPage == 'login-page' ? 'account-page' : 'login-page';
   }
 }

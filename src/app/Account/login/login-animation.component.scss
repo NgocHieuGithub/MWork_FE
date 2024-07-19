@@ -1,0 +1,290 @@
+.main-container {
+  .main-content {
+
+    &.login-page {
+
+      .login-container {
+
+        .signin-content {
+          .form-content {
+            animation-delay: 0.4s;
+            animation: createLoginLeftAnimation 1.4s forwards;
+          }
+        }
+
+        .greeting-container {
+          animation: showGrettingAnimation 0.5s forwards;
+        }
+      }
+
+      .account-container {
+
+        .signin-content {
+          .form-content {
+            animation-delay: 0.6s;
+            animation: createAccountLeftAnimation 1.4s forwards;
+          }
+        }
+
+        .greeting-container {
+          animation: hideGrettingAnimation 0.6s forwards;
+          animation-delay: 0.5s;
+        }
+      }
+
+      .slide-shape {
+        animation: slideToRightAnimation 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+        .main-button {
+          animation: slideButtonToLeftAnimation 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+          .sign-up {
+            opacity: 0;
+            animation: slideButtonTextOutLeftAnimation 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          }
+
+          .sign-in {
+            animation: slideButtonTextInLeftAnimation 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          }
+        }
+      }
+    }
+
+    &.account-page {
+
+      .login-container {
+
+        .signin-content {
+          .form-content {
+            z-index:1;
+            animation: createLoginRightAnimation 1.8s forwards;
+          }
+        }
+
+        .greeting-container {
+          animation: hideGrettingAnimation 0.6s forwards;
+          animation-delay: 0.5s;
+        }
+
+      }
+
+      .account-container {
+
+        .signin-content {
+          .form-content {
+            animation: createAccountRightAnimation 1s forwards;
+          }
+        }
+
+        .greeting-container {
+          animation: showGrettingAnimation 0.8s forwards;
+        }
+      }
+
+      .slide-shape {
+        animation: slideToLeftAnimation 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+        .main-button {
+          animation: slideButtonToRightAnimation 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+          .sign-in {
+            opacity: 0;
+            animation: slideButtonTextInRightAnimation 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          }
+
+          .sign-up {
+            animation: slideButtonTextOutRightAnimation 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideToLeftAnimation {
+  0% {
+    transform: translateX(151%);
+    width: 40%;
+  }
+
+  20% {
+    left: -250px;
+    width: 50%
+  }
+
+  100% {
+    left: 0px;
+    width: 40%;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideToRightAnimation {
+  0% {
+    transform: translateX(0%);
+    width: 40%;
+  }
+
+  20% {
+    width: 50%
+  }
+
+  100% {
+    width: 40%;
+    transform: translateX(151%);
+  }
+}
+
+
+@keyframes createAccountRightAnimation {
+  0% {
+    right: 60%;
+    z-index: -5;
+  }
+
+  100% {
+    right: 16.5%;
+    z-index: 2;
+  }
+}
+
+@keyframes createAccountLeftAnimation {
+  0% {
+    right: 16.5%;
+    z-index: 2;
+  }
+
+  100% {
+    right: 60%;
+    z-index: -5;
+  }
+}
+
+
+@keyframes createLoginLeftAnimation {
+  0% {
+    right: 0%;
+    z-index: -2;
+  }
+
+  100% {
+    right: 52.5%;
+    z-index: 1;
+  }
+}
+
+
+@keyframes createLoginRightAnimation {
+  0% {
+    right: 52.5%;
+    z-index: 1;
+  }
+
+  100% {
+    right: 8.5%;
+    z-index: -5;
+  }
+}
+
+@keyframes hideGrettingAnimation {
+  0% {
+    z-index: 1;
+  }
+
+  100% {
+    z-index: -5;
+  }
+}
+
+@keyframes showGrettingAnimation {
+  0% {
+    z-index: -5;
+  }
+
+  100% {
+    z-index: 2;
+  }
+}
+
+@keyframes slideButtonTextInRightAnimation {
+  0% {
+    transform: translateX(-250px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(-25px);
+    opacity: 1;
+  }
+}
+
+@keyframes slideButtonTextOutRightAnimation {
+  0% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(120px);
+    opacity: 0;
+  }
+}
+
+
+@keyframes slideButtonTextInLeftAnimation {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-120px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideButtonTextOutLeftAnimation {
+  0% {
+    transform: translateX(150px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(25px);
+    opacity: 1;
+  }
+}
+
+@keyframes slideButtonToRightAnimation {
+  0% {
+    transform: translateX(0px);
+    width: 250px;
+  }
+
+  20% {
+    transform: translateX(10%);
+    width: 300px;
+  }
+
+  100% {
+    width: 250px;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes slideButtonToLeftAnimation {
+  0% {
+    transform: translateX(0px);
+    width: 250px;
+  }
+
+  20% {
+    transform: translateX(10%);
+    width: 300px;
+  }
+
+  100% {
+    width: 250px;
+    transform: translateX(0px);
+  }
+}

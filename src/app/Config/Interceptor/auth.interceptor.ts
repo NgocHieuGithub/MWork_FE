@@ -9,13 +9,7 @@ export class AuthInterceptor implements HttpInterceptor{
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token: string | null = sessionStorage.getItem('mwork_ac');
     console.log("interceptor", token)
-    if (token) {
-      req = req.clone({
-        setHeaders: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-    }
-    return next.handle(req);
+      const authReq = req.clone({ setHeaders: { Authorization: `Bearer ${token}` } });
+    return next.handle(authReq);
   }
 }

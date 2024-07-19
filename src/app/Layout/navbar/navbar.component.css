@@ -7,7 +7,7 @@
   background-color: #333;
   color: #fff;
   padding: 10px 0;
-  text-align: center;
+  text-align: end;
 }
 
 .navbar h1 {
@@ -26,6 +26,8 @@
   font-size: 1.5em;
 }
 .dropdown {
+  margin-right: 100px;
+  text-align: center;
   position: relative;
   display: inline-block;
 }
@@ -64,3 +66,4 @@
     position: static;
   }
 }
+

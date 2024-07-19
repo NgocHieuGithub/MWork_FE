@@ -16,11 +16,14 @@ type task_res = {
 export class TaskService{
   protected app_config = inject(ApplicationConfigServiceService)
   protected http = inject(HttpClient);
-
+  protected headers = new HttpHeaders()
+    .set('Authorization', `Bearer ${sessionStorage.getItem('mwork_ac')}`)
+    .set('Content-Type', 'application/json');
   GetListTask(x:string):Observable<task_res>{
-    const headers = new HttpHeaders()
-      .set('Authorization', `Bearer ${sessionStorage.getItem('mwork_ac')}`)
-      .set('Content-Type', 'application/json');
-    return this.http.get<task_res>(this.app_config.getEndpointFor('project/read'),{headers:headers, params:{id_project:x}})
+    return this.http.get<task_res>(this.app_config.getEndpointFor('project/read'),{headers:this.headers, params:{id_project:x}})
+  }
+
+  GetYourTask(x:string):Observable<any>{
+    return this.http.get(this.app_config.getEndpointFor('task/list'),{headers:this.headers, params:{id_group:x}})
   }
 }

@@ -1,6 +1,6 @@
-<h1 mat-dialog-title>Dialog</h1>
-<div mat-dialog-actions>
-  <button mat-button (click)="closeDialog()">Close</button>
-  <input matInput [(ngModel)]="input_value">
+<h1 mat-dialog-title>Code group</h1>
+<div mat-dialog-actions style="text-align: center">
+  <input placeholder="Code group" style="padding: 8px; margin-right: 25px; margin-bottom: 10px" matInput [(ngModel)]="input_value">
   <button mat-button color="primary" (click)="submitValue()">Submit</button>
+  <button mat-button (click)="closeDialog()">Close</button>
 </div>

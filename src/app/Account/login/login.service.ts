@@ -29,6 +29,6 @@ export class LoginService{
 
   login(login: LoginModel): Observable<void>{
     return this.http.post<JwtToken>(this.app_config.getEndpointFor("SignIn"), login)
-      .pipe(map(x=>this.storage.saveToken(x.result.accessToken,x.result.refreshToken)))
+      .pipe(map(x=>this.storage.saveToken(x.result.accessToken,x.result.refreshToken, x.result.user.id)))
   }
 }

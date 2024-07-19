@@ -1,5 +1,8 @@
 <p>project works!</p>
-<button (click)="GetInforGroup()">Detail Group</button>
+<button (click)="GetInforGroup()">Bảng tin</button>
+<button ><a [routerLink]="['/group/t', id]">Công việc</a></button>
+<button><a [routerLink]="['/group/c', id]">Tạo công việc</a></button>
+<button><a [routerLink]="['/group/r', id]">Chi tiết nhóm</a></button>
 @for (project of projects; track project.id){
   <div style="border-style: solid" (click)="OnClick(project.id)">
     <p>{{project.name}}</p>
