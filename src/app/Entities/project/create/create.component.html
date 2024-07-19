@@ -1,0 +1,22 @@
+<p>create works!</p>
+<form [formGroup]="mainForm" (ngSubmit)="onSubmit()">
+  <div formArrayName="formGroups">
+    <div *ngFor="let formGroup of formGroups.controls; let i=index" [formGroupName]="i">
+      <div class="form-group">
+        <label for="name{{i}}">Name:</label>
+        <input type="text" id="name{{i}}" formControlName="name" required>
+
+        <label for="deadline{{i}}">Deadline:</label>
+        <input type="date" id="deadline{{i}}" formControlName="deadline" required>
+
+        <label for="createAt{{i}}">Created At:</label>
+        <input type="date" id="createAt{{i}}" formControlName="createAt" required>
+
+        <button type="button" (click)="removeFormGroup(i)">Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" (click)="addFormGroup()">Add</button>
+  <button type="submit">Submit</button>
+</form>
