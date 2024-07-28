@@ -1,11 +1,29 @@
-<p>task works!</p>
-@for (x of tasks; track x.id){
-  <div style="border-style: solid; text-align: center;
+<div class="wrapper">
+
+  <app-navbar></app-navbar>
+
+  <div class="content">
+
+    <div class="left-container">
+      <app-left-container></app-left-container>
+    </div>
+
+    <div class="right-container">
+      <div style="margin: 20px">
+        @for (x of tasks; track x.id){
+          <div style="border-style: solid; padding: 10px; margin-bottom: 20px; border-radius: 10px;
 {{sessionStorage.getItem('mwork_id') == x.user.id ?  'background-color: #ffff' : ' background-color: #f1f1'}}">
-  <p>{{x.nameTask}}</p>
-    <p>{{x.createAt}}</p>
-    <p>{{x.deadLine}}</p>
-    <p>{{x.finishAt == null ? 'Not finish' : 'finish at' + x.finishAt}}</p>
-    <p>{{x.user.name}}</p>
+            <p>Tên công việc: {{x.nameTask}}</p>
+            <p>Ngày giao: {{x.createAt}}</p>
+            <p>Thời hạn: {{x.deadLine}}</p>
+            <p>Trạng thái: {{x.finishAt == null ? 'Chưa hoàn thành' : 'Đã hoàn thành ngày: ' + x.finishAt}}</p>
+            <!--          <p>{{x.user.name}}</p>-->
+          </div>
+        }
+      </div>
+    </div>
+
   </div>
-}
+
+  <app-footer></app-footer>
+</div>

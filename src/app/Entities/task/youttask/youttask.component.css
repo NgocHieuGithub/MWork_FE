@@ -1,0 +1,34 @@
+.wrapper {
+  display: flex; /* Sử dụng Flexbox */
+  min-height: 100vh;
+  flex-direction: column; /* Sắp xếp các thành phần theo chiều dọc */
+}
+
+.content {
+  flex: 1; /* Content sẽ mở rộng để điền vào không gian còn lại */
+  display: flex;
+}
+
+.left-container {
+  border-right: 2px solid #b9baba;
+  flex: 1;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.left-container h2 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.right-container {
+  flex: 6;
+  background-color: #ffffff;
+  /*padding: 20px;*/
+}
+.menu{
+  padding: 20px;
+}
+.menu:hover{
+  background-color: #f4f3f3;
+}

@@ -16,3 +16,33 @@
   <br>
   <button>Register</button>
 </form>
+
+
+<div>
+  <input type="file" (change)="onFileSelected($event)">
+  <button (click)="onUpload()">Upload</button>
+</div>
+<img style="width: 150px; height: 150px; border-radius: 100px" src="https://firebasestorage.googleapis.com/v0/b/mwork-storage.appspot.com/o/uploads%2FRest_GraphSQL.jpg?alt=media&token=a7b1c6f1-07f0-48fc-b9b6-7b8991b4fef9">
+
+
+<div>
+  <textarea [(ngModel)]="textContent" rows="10" cols="50"></textarea><br>
+  <button (click)="createAndUploadTextFile()">Tạo và Gửi lên Firebase</button>
+</div>
+
+
+<button (click)="loadTextFromUrl()">Click show text</button>
+<pre>{{text}}</pre>
+
+
+
+<input type="file" (change)="onFilesSelected($event)" multiple>
+<button (click)="uploadFiles()">Upload</button>
+<div *ngIf="urls.length > 0">
+  <h3>Uploaded files:</h3>
+  <ul>
+    <li *ngFor="let i of fileInfos">
+      <a [href]="i.url" target="_blank">{{i.name}}</a>
+    </li>
+  </ul>
+</div>

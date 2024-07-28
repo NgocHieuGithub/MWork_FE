@@ -1,13 +1,8 @@
-.navbar-left-container {
-  display: flex;
-}
-
 .navbar {
-  flex: 0 0 20%; /* Navbar chiếm 20% chiều rộng */
-  background-color: #333;
-  color: #fff;
+  background-color: #ffffff;
+  color: #252424;
   padding: 10px 0;
-  text-align: end;
+  border-bottom: 2px solid #b9baba;
 }
 
 .navbar h1 {
@@ -15,18 +10,8 @@
   font-size: 1.8em;
 }
 
-.left-container {
-  flex: 1; /* Left container chiếm phần còn lại */
-  background-color: #f0f0f0;
-  padding: 20px;
-}
-
-.left-container h2 {
-  margin-bottom: 10px;
-  font-size: 1.5em;
-}
 .dropdown {
-  margin-right: 100px;
+  margin-right: 50px;
   text-align: center;
   position: relative;
   display: inline-block;
@@ -56,14 +41,4 @@
   display: block;
 }
 
-/* For mobile devices */
-@media screen and (max-width: 600px) {
-  .dropdown:hover .dropdown-content {
-    display: none;
-  }
-
-  .dropdown-content {
-    position: static;
-  }
-}
 

@@ -1,27 +1,24 @@
 @if (check){
   <header class="navbar">
-    <div class="container">
-      <h1 style="text-align: center">Navbar</h1>
-      <div class="dropdown">
-        <button  style="width: 160px; padding: 12px 16px">Dropdown</button>
-        <div class="dropdown-content">
-          <a (click)="JoinGroup()">Join Group</a>
-          <a (click)="CreateGroup()">Create Group</a>
+    <div class="container" style="display: flex">
+      <span style="width: 160px;margin-left: 80px; padding: 12px 16px; flex: 1" >Home</span>
+      <div style="text-align: end">
+        <div class="dropdown">
+          <button  style="width: 160px; padding: 12px 16px">+</button>
+          <div class="dropdown-content">
+            <a (click)="JoinGroup()">Join Group</a>
+            <a (click)="CreateGroup()">Create Group</a>
+          </div>
         </div>
+        <button style="width: 160px; padding: 12px 16px;margin-right: 20px" (click)="Logout()">Logout</button>
       </div>
-      <button style="width: 160px; padding: 12px 16px;margin-right: 70px" (click)="Logout()">Logout</button>
     </div>
   </header>
 } @else {
   <header class="navbar">
     <div class="container">
-      <h1>Navbar {{check}}</h1>
+      <p style="text-align: center">Navbar </p>
     </div>
   </header>
 }
-<!--<aside class="left-container">-->
-<!--  <div class="container">-->
-<!--    <h2>Left Container</h2>-->
-<!--    <p>Content goes here...</p>-->
-<!--  </div>-->
-<!--</aside>-->
+

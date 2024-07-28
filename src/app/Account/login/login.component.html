@@ -1,28 +1,43 @@
-<!--<p>login works!</p>-->
-<!--<form [formGroup]="loginForm" (ngSubmit)='login()'>-->
-<!--  <label>Username</label>-->
-<!--  <input name="username" formControlName="username">-->
-<!--  <label>Password</label>-->
-<!--  <input type="password" name="password" formControlName="password">-->
-<!--  <button>Login</button>-->
+<!--<form [formGroup]="loginForm" (submit)="login()" autocomplete="new-password">-->
+<!--  <h1 style="text-align: center">Login</h1>-->
+
+<!--  <div class="form-control">-->
+<!--    <label>Username</label>-->
+<!--    <input name="username" formControlName="username">-->
+<!--  </div>-->
+
+<!--  <div class="form-control">-->
+<!--    <label for="password">Password</label>-->
+<!--    <input-->
+<!--      formControlName="password"-->
+<!--      id="password"-->
+<!--      autocomplete="new-password"-->
+<!--      type="password"-->
+<!--    />-->
+<!--  </div>-->
+<!--  <button type="submit">Login </button>-->
 <!--</form>-->
+<div class="container">
+  <form action="" class="login-form"  [formGroup]="loginForm" (submit)="login()" autocomplete="new-password">
+    <h2>Login</h2>
+    <div class="input-group form-control">
+<!--      <label >Username</label>-->
+      <input type="text" name="username" formControlName="username" required placeholder="Username">
+    </div>
+    <div class="input-group form-control">
+<!--      <label>Password</label>-->
+      <input
+        formControlName="password"
+        id="password"
+        autocomplete="new-password"
+        type="password"
+        placeholder="Password"
+      />
+    </div>
+    <button type="submit">Login </button>
+  </form>
+<!--  <div>-->
+<!--    <a style="margin-top: 10px" [routerLink] = "['/register']">Sign up</a>-->
+<!--  </div>-->
+</div>
 
-<form [formGroup]="loginForm" (submit)="login()" autocomplete="new-password">
-  <h1 style="text-align: center">Login</h1>
-
-  <div class="form-control">
-    <label>Username</label>
-    <input name="username" formControlName="username">
-  </div>
-
-  <div class="form-control">
-    <label for="password">Password</label>
-    <input
-      formControlName="password"
-      id="password"
-      autocomplete="new-password"
-      type="password"
-    />
-  </div>
-  <button type="submit">Login </button>
-</form>

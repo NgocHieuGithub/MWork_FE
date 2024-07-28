@@ -1,9 +1,38 @@
-<h1>Công việc của bạn</h1>
-@for (x of data; track x.id){
-  <div style="margin-left: 20%;margin-right: 20%; border-style: solid;">
-    <p>Tên công việc: {{x.nameTask}}</p>
-    <p>Ngày tạo: {{x.createAt}}</p>
-    <p>Thời hạn: {{x.deadLine}}</p>
-    <p>Trạng thái: {{x.finishAt == null ? 'Chưa hoàn thành' : 'Đẫ hoàn thành' + x.finishAt}}</p>
+<app-footer></app-footer>
+<div class="wrapper">
+
+  <app-navbar></app-navbar>
+
+  <div class="content">
+
+    <div class="left-container">
+      <app-left-container></app-left-container>
+    </div>
+
+    <div class="right-container">
+      <div style="display: flex;margin-bottom: 20px; border-bottom: 1px solid #b9baba">
+        <div style="margin-left: 40px;" class="menu" [routerLink]="['/project', id]">Bảng tin</div>
+        <div style="border-bottom: 3px solid #2f6c8c; color: #2f6c8c" class="menu">Công việc</div>
+        <div class="menu" [routerLink]="['/group/c', id]">Tạo công việc</div>
+        <div class="menu" [routerLink]="['/group/r', id]">Chi tiết nhóm</div>
+      </div>
+      <div >
+        @if (data.length == 0){
+          <h1 style="margin-left: 40px;">Bạn không có cong viec nao !</h1>
+        }
+        <h1 style="margin-left: 40px;">Công việc của bạn</h1>
+        @for (x of data; track x.id){
+          <div style="margin-left: 20%;margin-right: 20%; border-style: solid; border-radius: 10px; padding: 10px">
+            <p>Tên công việc: {{x.nameTask}}</p>
+            <p>Ngày tạo: {{x.createAt}}</p>
+            <p>Thời hạn: {{x.deadLine}}</p>
+            <p>Trạng thái: {{x.finishAt == null ? 'Chưa hoàn thành' : 'Đẫ hoàn thành' + x.finishAt}}</p>
+          </div>
+        }
+      </div>
+    </div>
+
   </div>
-}
+
+  <app-footer></app-footer>
+</div>

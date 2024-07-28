@@ -1,9 +1,43 @@
-<p>details works!</p>
-<h1>Leader</h1>
-<p>{{data.inforGroup.leader.name}}</p>
-<h1>Member</h1>
-@for(x of data.inforListMember; track x.id){
-  @if (data.inforGroup.leader.id != x.id){
-    <p>{{x.name}}</p>
-  }
-}
+<div class="wrapper">
+
+  <app-navbar></app-navbar>
+
+  <div class="content">
+
+    <div class="left-container">
+      <app-left-container></app-left-container>
+    </div>
+
+    <div class="right-container">
+      <div style="display: flex;margin-bottom: 20px; border-bottom: 1px solid #b9baba">
+        <div style="margin-left: 40px;" class="menu" [routerLink]="['/project', id]">Bảng tin</div>
+        <div class="menu" [routerLink]="['/group/t', id]">Công việc</div>
+        <div class="menu" [routerLink]="['/group/c', id]">Tạo công việc</div>
+        <div style="border-bottom: 3px solid #2f6c8c; color: #2f6c8c"  class="menu" >Chi tiết nhóm</div>
+      </div>
+      <div style="margin-left: 20%; margin-right: 20%">
+        <h1>Leader</h1>
+        <hr>
+        @if(data){
+          <div style="align-items: center; display: flex">
+            <img style="height: 50px;width: 50px;border-radius: 25px" src="{{data.inforGroup.leader.urlavt}}">
+            <span style="margin-left: 20px">{{data.inforGroup.leader.name}}</span>
+          </div>
+          <h1>Member {{data.inforListMember.length - 1}}</h1>
+          @for(x of data.inforListMember; track x.id){
+            @if (data.inforGroup.leader.id != x.id){
+              <hr>
+              <div style="align-items: center; display: flex">
+                <img style="height: 50px;width: 50px;border-radius: 25px" src="{{x.urlavt}}">
+                <span style="margin-left: 20px">{{x.name}}</span>
+              </div>
+            }
+          }
+        }
+      </div>
+    </div>
+
+  </div>
+
+  <app-footer></app-footer>
+</div>

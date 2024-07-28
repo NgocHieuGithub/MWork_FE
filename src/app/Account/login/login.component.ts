@@ -1,18 +1,20 @@
 import {AfterViewInit, Component, ElementRef, inject} from '@angular/core';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {LoginService} from "./login.service";
-import {Router, Routes} from "@angular/router";
+import {Router, RouterLink, Routes} from "@angular/router";
 import {TokenStorage} from "../../Config/Storage/TokenStorage";
 import {NgClass} from "@angular/common";
+import {HttpClient} from "@angular/common/http";
 
 
 @Component({
-  selector: 'app-main',
+  selector: 'app-login',
   standalone: true,
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    NgClass
+    NgClass,
+    RouterLink
   ],
   templateUrl: './login.component.html',
   styleUrls: [
@@ -20,6 +22,7 @@ import {NgClass} from "@angular/common";
   ]
 })
 export class LoginComponent {
+  protected http = inject(HttpClient);
   private loginService = inject(LoginService);
   protected router = inject(Router);
   protected storage = inject(TokenStorage);
@@ -31,7 +34,7 @@ export class LoginComponent {
     console.log(this.loginForm.getRawValue())
     this.loginService.login(this.loginForm.getRawValue()).subscribe({
       next: data => {
-        this.router.navigate(["/home"]);
+          this.router.navigate(["/home"]);
     },error:()=>{
         alert("Wrong password")
       }

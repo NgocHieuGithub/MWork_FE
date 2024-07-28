@@ -1,0 +1,146 @@
+.wrapper {
+  display: flex; /* Sử dụng Flexbox */
+  min-height: 100vh;
+  flex-direction: column; /* Sắp xếp các thành phần theo chiều dọc */
+}
+
+.content {
+  flex: 1; /* Content sẽ mở rộng để điền vào không gian còn lại */
+  display: flex;
+}
+
+.left-container {
+  border-right: 2px solid #b9baba;
+  flex: 1;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.left-container h2 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.right-container {
+  flex: 6;
+  background-color: #ffffff;
+  /*padding: 20px;*/
+}
+
+.menu{
+  padding: 20px;
+}
+.menu:hover{
+  background-color: #f4f3f3;
+}
+/*Div 1 CSS*/
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.input-container {
+  width: 1000px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Chuyển thành dạng cột để sắp xếp các phần tử */
+}
+
+#text-input {
+  width: calc(100%); /* Subtract padding and border width from width */
+  height: 250px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  resize: none;
+  margin-bottom: 10px; /* Khoảng cách giữa textarea và button */
+  box-sizing: border-box; /* Ensure padding and border are included in width calculation */
+}
+
+.toolbar {
+  display: flex;
+  margin-bottom: 5px; /* Khoảng cách giữa thanh công cụ và textarea */
+}
+
+.toolbar button {
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  margin-right: 5px; /* Khoảng cách giữa các button trong thanh công cụ */
+}
+
+.toolbar button:last-child {
+  margin-right: 0; /* Không có khoảng cách cho button cuối cùng */
+}
+
+.toolbar button:hover {
+  background-color: #e0e0e0;
+}
+
+.submit-button {
+  text-align: end;
+  align-self: flex-end; /* Đẩy button lên phía bên phải */
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+/**/
+
+.create{
+  padding: 20px;
+}
+.create:hover{
+  background-color: #f4f3f3;
+}
+.active{
+  border-bottom: 3px solid #2f6c8c;
+  color: #2f6c8c;
+}
+
+
+/**/
+
+#fileList {
+  margin-top:5px;
+  margin-bottom:5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+#fileList .file-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: #f9f9f9;
+}
+
+#fileList .file-item button {
+  border: none;
+  padding: 3px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+}

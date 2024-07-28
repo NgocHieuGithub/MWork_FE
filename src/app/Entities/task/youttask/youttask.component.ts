@@ -1,11 +1,19 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {TaskService} from "../task.service";
+import {FooterComponent} from "../../../Layout/footer/footer.component";
+import {LeftContainerComponent} from "../../../Layout/left-container/left-container.component";
+import {NavbarComponent} from "../../../Layout/navbar/navbar.component";
 
 @Component({
   selector: 'app-youttask',
   standalone: true,
-  imports: [],
+  imports: [
+    FooterComponent,
+    LeftContainerComponent,
+    NavbarComponent,
+    RouterLink
+  ],
   templateUrl: './youttask.component.html',
   styleUrl: './youttask.component.css'
 })

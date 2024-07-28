@@ -1,22 +1,86 @@
-<p>create works!</p>
-<form [formGroup]="mainForm" (ngSubmit)="onSubmit()">
-  <div formArrayName="formGroups">
-    <div *ngFor="let formGroup of formGroups.controls; let i=index" [formGroupName]="i">
-      <div class="form-group">
-        <label for="name{{i}}">Name:</label>
-        <input type="text" id="name{{i}}" formControlName="name" required>
+<div class="wrapper">
 
-        <label for="deadline{{i}}">Deadline:</label>
-        <input type="date" id="deadline{{i}}" formControlName="deadline" required>
+  <app-navbar></app-navbar>
 
-        <label for="createAt{{i}}">Created At:</label>
-        <input type="date" id="createAt{{i}}" formControlName="createAt" required>
+  <div class="content">
 
-        <button type="button" (click)="removeFormGroup(i)">Remove</button>
+    <div class="left-container">
+      <app-left-container></app-left-container>
+    </div>
+
+    <div class="right-container">
+      <div style="display: flex;margin-bottom: 20px; border-bottom: 1px solid #b9baba">
+        <div style="margin-left: 40px;" class="menu" [routerLink]="['/project', id]">Bảng tin</div>
+        <div class="menu" [routerLink]="['/group/t', id]">Công việc</div>
+        <div style="border-bottom: 3px solid #2f6c8c; color: #2f6c8c" class="menu">Tạo công việc</div>
+        <div class="menu" [routerLink]="['/group/r', id]">Chi tiết nhóm</div>
+      </div>
+      <div style="text-align: center; margin-bottom: 30px">
+        <span id="btn1" class="create active" (click)="showDiv(1)" >Tạo post</span>
+        <span id="btn2" class="create" (click)="showDiv(2)">Tạo assigment</span>
+      </div>
+
+
+      <div class="input-container" id="div1">
+        <textarea [(ngModel)]="textContent" id="text-input" placeholder="Nhập văn bản vào đây..."></textarea>
+        <input id="inputDOC" type="file" style="display:none;" multiple (change)="onFileSelected($event)">
+        <div id="fileList">
+          <div *ngFor="let file of selectedFile" class="file-item">
+            <span>{{ file.name }}</span>
+            <button (click)="removeFile(file)">X</button>
+          </div>
+        </div>
+        <div class="toolbar">
+          <button onclick="formatText('bold')"><b>B</b></button>
+          <button onclick="formatText('italic')"><i>I</i></button>
+          <button onclick="formatText('underline')"><u>U</u></button>
+          <button (click)="DOC()">🔗</button>
+        </div>
+        <div style="text-align: end"><button class="submit-button" (click)="CreatePost()">Gửi</button></div>
+      </div>
+
+
+      <div id="div2" style="display: none">
+        <h2>Tạo assigment</h2>
+
+        <form [formGroup]="mainForm" (ngSubmit)="onSubmit()">
+          <div class="form-group" style="margin: 10px">
+            <label for="name">Tên assigment:</label>
+            <input type="text" id="name" formControlName="name" style="margin-left: 10px">
+            <!--      <div *ngIf="mainForm.get('name').invalid && mainForm.get('name').touched">-->
+            <!--        <div *ngIf="mainForm.get('name').errors?.required">Name is required</div>-->
+            <!--      </div>-->
+          </div>
+
+          <div formArrayName="taskRequests" style="margin: 10px">
+            <div *ngFor="let formGroup of formList.controls; let i=index" [formGroupName]="i" class="form-group" style="margin: 10px">
+              <label for="title{{i}}">Title:</label>
+              <input type="text" id="title{{i}}" formControlName="nameTask">
+              <!--        <div *ngIf="formGroup.get('title').invalid && formGroup.get('title').touched">-->
+              <!--          <div *ngIf="formGroup.get('title').errors?.required">Title is required</div>-->
+              <!--        </div>-->
+
+              <label for="deadline{{i}}">Deadline:</label>
+              <input type="date" id="deadline{{i}}" formControlName="deadLine" required>
+
+              <select formControlName="user_id">
+                <option value="" disabled selected hidden>-- Select Member--</option>
+                @for(member of members; track member.id){
+                  <option value="{{member.id}}">{{member.name}}</option>
+                }
+              </select>
+
+              <button type="button" (click)="removeForm(i)">Remove</button>
+            </div>
+          </div>
+
+          <button type="button" (click)="addForm()">Add Form</button>
+          <button type="submit">Submit</button>
+        </form>
       </div>
     </div>
+
   </div>
 
-  <button type="button" (click)="addFormGroup()">Add</button>
-  <button type="submit">Submit</button>
-</form>
+  <app-footer></app-footer>
+</div>

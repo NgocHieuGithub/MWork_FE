@@ -27,7 +27,7 @@ export class LoginService{
   protected app_config = inject(ApplicationConfigServiceService);
   protected storage = inject(TokenStorage);
 
-  login(login: LoginModel): Observable<void>{
+  login(login: LoginModel): Observable<any>{
     return this.http.post<JwtToken>(this.app_config.getEndpointFor("SignIn"), login)
       .pipe(map(x=>this.storage.saveToken(x.result.accessToken,x.result.refreshToken, x.result.user.id)))
   }

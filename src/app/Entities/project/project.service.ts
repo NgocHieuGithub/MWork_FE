@@ -2,7 +2,7 @@ import {inject, Injectable} from "@angular/core";
 import {ApplicationConfigServiceService} from "../../Config/application-config.service.service";
 import {Observable} from "rxjs";
 import {ProjectModel} from "./project.model";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpResponse} from "@angular/common/http";
 type Project_res = {
   code:number
   result: ProjectModel[]
@@ -11,13 +11,18 @@ type Project_res = {
 export class ProjectService{
   protected app_config = inject(ApplicationConfigServiceService)
   protected http = inject(HttpClient)
-  GetListProject(x: string):Observable<Project_res>{
-    const headers = new HttpHeaders()
-      .set('Authorization', `Bearer ${sessionStorage.getItem('mwork_ac')}`)
-      .set('Content-Type', 'application/json');
-    return this.http.get<Project_res>(
+  protected headers = new HttpHeaders()
+    .set('Authorization', `Bearer ${sessionStorage.getItem('mwork_ac')}`)
+    .set('Content-Type', 'application/json');
+
+  GetListProject(x: string):Observable<any>{
+    return this.http.get<any>(
       this.app_config.getEndpointFor('project/getlist'),
-      {headers:headers, params: {id_group:x}}
+      {headers:this.headers, params: {id_group:x}}
     );
+  }
+
+  CreateProject(x: any): Observable<HttpResponse<any>>{
+    return this.http.post<any>(this.app_config.getEndpointFor('project/create'),x,{headers:this.headers})
   }
 }

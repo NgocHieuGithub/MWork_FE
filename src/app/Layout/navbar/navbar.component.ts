@@ -3,6 +3,7 @@ import {NavigationEnd, Router, RouterOutlet} from "@angular/router";
 import {filter} from "rxjs";
 import {GroupService} from "../../Entities/group/group.service";
 import {MatDialogModule,MatDialog} from '@angular/material/dialog';
+import { ChangeDetectorRef } from '@angular/core';
 import {
   MatDialogActions,
   MatDialogClose,
@@ -15,6 +16,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInput} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {CGroupDialogComponent} from "../Dialog/cgroup-dialog/cgroup-dialog.component";
+import {TokenStorage} from "../../Config/Storage/TokenStorage";
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -22,28 +24,13 @@ import {CGroupDialogComponent} from "../Dialog/cgroup-dialog/cgroup-dialog.compo
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent{
+  cdr = inject(ChangeDetectorRef)
   router = inject(Router)
   group_service = inject(GroupService)
   readonly dialog = inject(MatDialog);
-  check?: boolean = true
-  ngOnInit(): void {
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      // Lấy URL hiện tại sau khi thay đổi route
-      const currentUrl = this.router.url;
-      console.log('Current URL:', currentUrl);
-      // Kiểm tra URL và áp dụng kiểu navbar tương ứng
-      if (currentUrl.includes('/home')) {
-        // Áp dụng kiểu navbar cho trang A
-        this.check = true
-      }
-      else {
-        this.check = false
-      }
-    });
-  }
+  protected check = this.router.url.includes('home')
+  protected storage = inject(TokenStorage)
 
 
   CreateGroup(){
@@ -54,8 +41,7 @@ export class NavbarComponent implements OnInit{
   }
 
   Logout(){
-    sessionStorage.removeItem('mwork_ac')
-    sessionStorage.removeItem('mwork_rf')
+    this.storage.clearToken()
     window.location.replace('/')
     //this.router.navigate([''])
   }

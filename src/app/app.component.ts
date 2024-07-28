@@ -3,7 +3,6 @@ import { RouterOutlet } from '@angular/router';
 import {NavbarComponent} from "./Layout/navbar/navbar.component";
 import {FooterComponent} from "./Layout/footer/footer.component";
 import {LoginComponent} from "./Account/login/login.component";
-import {HttpClientModule} from "@angular/common/http";
 import {RegisterComponent} from "./Account/register/register.component";
 import {HomeComponent} from "./Layout/home/home.component";
 

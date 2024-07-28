@@ -1,11 +1,48 @@
-<p>project works!</p>
-<button (click)="GetInforGroup()">Bảng tin</button>
-<button ><a [routerLink]="['/group/t', id]">Công việc</a></button>
-<button><a [routerLink]="['/group/c', id]">Tạo công việc</a></button>
-<button><a [routerLink]="['/group/r', id]">Chi tiết nhóm</a></button>
-@for (project of projects; track project.id){
-  <div style="border-style: solid" (click)="OnClick(project.id)">
-    <p>{{project.name}}</p>
-    <p>{{project.dateCreate}}</p>
+<div class="wrapper">
+
+  <app-navbar></app-navbar>
+
+  <div class="content">
+
+    <div class="left-container">
+      <app-left-container></app-left-container>
+    </div>
+
+    <div class="right-container">
+      <div >
+        <div style="display: flex;margin-bottom: 20px; border-bottom: 1px solid #b9baba">
+          <div style="margin-left: 40px; border-bottom: 3px solid #2f6c8c; color: #2f6c8c" class="menu" >Bảng tin</div>
+          <div class="menu" [routerLink]="['/group/t', id]">Công việc</div>
+          <div class="menu" [routerLink]="['/group/c', id]">Tạo công việc</div>
+          <div class="menu" [routerLink]="['/group/r', id]">Chi tiết nhóm</div>
+        </div>
+        @if(projects?.length == 0){
+          <h1>Không có project nào !</h1>
+        }
+        @for (project of projects; track project.id){
+          @if(project.type == 1){
+            <div style="border-style: solid; padding:10px 20px 10px 20px; border-radius: 10px; margin:0px 20px 20px 20px" (click)="OnClick(project.id)">
+              <p>Tên assigment: {{project.name}}</p>
+              <p style="font-size: 12px">Ngày tạo 🕛: {{project.dateCreate}}</p>
+            </div>
+          } @else {
+            <div style="border-style: solid; padding:10px 20px 10px 20px; border-radius: 10px; margin:0px 20px 20px 20px" >
+              <p style="font-size: 12px">Ngày tạo 🕛: {{project.dateCreate}}</p>
+              <button id="btnShow {{project.id}}" (click)="loadTextFromUrl(project.name, project.id)">Xem chi tiết</button>
+              <div style="display: none" id="{{project.id}}">
+                <pre id="divcontent {{project.id}}" class="textcontent"  style="font: initial; overflow-wrap: break-word;word-wrap: break-word;"></pre>
+                <p *ngFor="let i of project.docs" style="margin-bottom: 10px">
+                  <a style="text-decoration: none" [href]="i.url" target="_blank">📂 {{i.name}}</a>
+                </p>
+              </div>
+              <button style="display: none" id="btnHide {{project.id}}" (click)="hide(project.id)">Hide</button>
+            </div>
+          }
+        }
+      </div>
+    </div>
+
   </div>
-}
+
+  <app-footer></app-footer>
+</div>

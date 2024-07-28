@@ -1,5 +1,7 @@
 export interface ProjectModel{
-  id:string,
   name:string,
-  dateCreate: string
+  dateCreate: string,
+  id_group:string
+  type:0,
+  docshare: any[]
 }

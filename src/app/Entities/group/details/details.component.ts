@@ -1,11 +1,19 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {GroupService} from "../group.service";
+import {FooterComponent} from "../../../Layout/footer/footer.component";
+import {LeftContainerComponent} from "../../../Layout/left-container/left-container.component";
+import {NavbarComponent} from "../../../Layout/navbar/navbar.component";
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [],
+  imports: [
+    FooterComponent,
+    LeftContainerComponent,
+    NavbarComponent,
+    RouterLink
+  ],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })
@@ -23,6 +31,7 @@ export class DetailsComponent implements OnInit{
     this.group_service.GetInforGroup(this.id).subscribe({
       next: res => {
         this.data = res.result
+        console.log(this.data)
       }, error:err => {
         console.log(err)
       }

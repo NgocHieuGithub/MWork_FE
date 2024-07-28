@@ -1,56 +1,81 @@
-@mixin focus {
-  &:focus {
-    outline-offset: 2px;
-    outline: 2px solid #07c;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-form {
-  max-width: 400px;
-  margin: 80px auto;
-  padding: 16px 16px 24px;
-  box-shadow: 0 2px 32px rgba(0, 0, 0, 0.15);
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  //display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+}
+
+.container {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  padding: 40px 30px;
+  //background: linear-gradient(to right, #ece7e7, #bdb6b6);
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 8px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  color: #4face1;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #4face1;
+  text-transform: uppercase;
+}
+
+input[type="text"], input[type="password"], button {
+  border: 1px solid #2f6c8c;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
   border-radius: 4px;
-
-  h1 {
-    margin-top: 0;
-    color: #555;
-    padding-bottom: 4px;
-    border-bottom: 1px solid #ccc;
-  }
+  transition: background-color 0.3s;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
-.form-control {
-  margin-bottom: 16px;
-  input,
-  label {
-    display: block;
-  }
-
-  label {
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-bottom: 4px;
-  }
-
-  input {
-    //padding: 8px;
-    height: 35px;
-    border-radius: 4px;
-    width: 100%;
-    border: 2px solid #ccc;
-    background-color: white;
-
-    @include focus;
-  }
+input[type="text"]:focus, input[type="password"]:focus {
+  background-color: #fff;
 }
 
 button {
-  background-color: #000;
-  color: #fff;
-  padding: 8px 24px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 12px;
+  border: none;
   border-radius: 4px;
-  width: 100%;
-  font-size: 1.2rem;
-  @include focus;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
 }
